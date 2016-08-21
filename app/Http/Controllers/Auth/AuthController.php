@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/flyers/create';
 
     /**
      * Create a new authentication controller instance.
@@ -37,7 +37,9 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => 'getLogout']);
+
+        parent::__construct();
     }
 
     /**
